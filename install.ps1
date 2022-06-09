@@ -1,13 +1,13 @@
 param (
   [Parameter()]
   [switch]
-  $UninstallSpotifyStoreEdition = 'y'
+  $UninstallSpotifyStoreEdition = (Read-Host -Prompt 'Uninstall Spotify Windows Store edition if it exists (Y/N)') -eq 'y',
   [Parameter()]
   [switch]
   $UpdateSpotify,
   [Parameter()]
   [switch]
-  $RemoveAdPlaceholder = 'y'
+  $RemoveAdPlaceholder = (Read-Host -Prompt 'Optional - Remove ad placeholder and upgrade button. (Y/N)') -eq 'y'
 )
 
 # Ignore errors from `Stop-Process`
