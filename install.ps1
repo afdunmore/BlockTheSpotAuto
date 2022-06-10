@@ -1,13 +1,13 @@
 param (
   [Parameter()]
   [switch]
-  $UninstallSpotifyStoreEdition = True,
+  $UninstallSpotifyStoreEdition -eq True,
   [Parameter()]
   [switch]
   $UpdateSpotify,
   [Parameter()]
   [switch]
-  $RemoveAdPlaceholder = True
+  $RemoveAdPlaceholder -eq True
 )
 
 # Ignore errors from `Stop-Process`
