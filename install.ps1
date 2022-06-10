@@ -1,10 +1,6 @@
-
-
-  $UninstallSpotifyStoreEdition = $true,
-
-  $UpdateSpotify = $true
-
-  $RemoveAdPlaceholder = $true
+$UninstallSpotifyStoreEdition = $true,
+$UpdateSpotify = $true
+$RemoveAdPlaceholder = $true
 
 
 # Ignore errors from `Stop-Process`
@@ -121,7 +117,7 @@ if (Get-AppxPackage -Name SpotifyAB.SpotifyMusic)
 {
   Write-Host "The Microsoft Store version of Spotify has been detected which is not supported.`n"
 
-  if ($UninstallSpotifyStoreEdition -eq $true)
+  if (1 -eq 1)
   {
     Write-Host "Uninstalling Spotify.`n"
     Get-AppxPackage -Name SpotifyAB.SpotifyMusic | Remove-AppxPackage
