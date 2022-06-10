@@ -1,13 +1,13 @@
 param (
   [Parameter()]
   [switch]
-  $UninstallSpotifyStoreEdition -eq True,
+  $UninstallSpotifyStoreEdition -eq $true,
   [Parameter()]
   [switch]
   $UpdateSpotify,
   [Parameter()]
   [switch]
-  $RemoveAdPlaceholder -eq True
+  $RemoveAdPlaceholder -eq $true
 )
 
 # Ignore errors from `Stop-Process`
@@ -124,7 +124,7 @@ if (Get-AppxPackage -Name SpotifyAB.SpotifyMusic)
 {
   Write-Host "The Microsoft Store version of Spotify has been detected which is not supported.`n"
 
-  if ($UninstallSpotifyStoreEdition)
+  if ($UninstallSpotifyStoreEdition -eq $true)
   {
     Write-Host "Uninstalling Spotify.`n"
     Get-AppxPackage -Name SpotifyAB.SpotifyMusic | Remove-AppxPackage
@@ -146,8 +146,6 @@ try
 }
 catch
 {
-  Write-Output $_
-  Read-Host 'Press any key to exit...'
   exit
 }
 
@@ -189,8 +187,6 @@ if (-not $spotifyInstalled -or $UpdateSpotify -or $unsupportedClientVersion)
   }
   catch
   {
-    Write-Output $_
-    Read-Host 'Press any key to exit...'
     exit
   }
   New-Item -Path $spotifyDirectory -ItemType:Directory -Force | Write-Verbose
@@ -265,7 +261,7 @@ $patchFiles = (Join-Path -Path $PWD -ChildPath 'chrome_elf.dll'), (Join-Path -Pa
 
 Copy-Item -LiteralPath $patchFiles -Destination "$spotifyDirectory"
 
-if ($RemoveAdPlaceholder)
+if ($RemoveAdPlaceholder -eq $true)
 {
   $xpuiBundlePath = Join-Path -Path $spotifyApps -ChildPath 'xpui.spa'
   $xpuiUnpackedPath = Join-Path -Path (Join-Path -Path $spotifyApps -ChildPath 'xpui') -ChildPath 'xpui.js'
