@@ -123,8 +123,7 @@ if (Get-AppxPackage -Name SpotifyAB.SpotifyMusic)
     Get-AppxPackage -Name SpotifyAB.SpotifyMusic | Remove-AppxPackage
   }
   else
-  {
-    Read-Host "Exiting...`nPress any key to exit..."
+  {    
     exit
   }
 }
