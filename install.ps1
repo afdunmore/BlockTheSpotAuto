@@ -1,8 +1,3 @@
-$UninstallSpotifyStoreEdition = $true,
-$UpdateSpotify = $true
-$RemoveAdPlaceholder = $true
-
-
 # Ignore errors from `Stop-Process`
 $PSDefaultParameterValues['Stop-Process:ErrorAction'] = [System.Management.Automation.ActionPreference]::SilentlyContinue
 
