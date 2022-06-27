@@ -325,3 +325,4 @@ Write-Host 'Patching Complete, starting Spotify...'
 Start-Process -WorkingDirectory $spotifyDirectory -FilePath $spotifyExecutable
 Write-Host 'Done.'
 
+exit
